@@ -3,9 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-
-
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
@@ -18,8 +15,6 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   imports: [
@@ -27,17 +22,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    MatSlideToggleModule,
-
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
-     BrowserAnimationsModule,
-     MatInputModule,
-     MatFormFieldModule
+    BrowserAnimationsModule,
+    HeroSearchComponent
   ],
   declarations: [
     AppComponent,
@@ -45,7 +37,6 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
   ],
   bootstrap: [ AppComponent ]
 })
